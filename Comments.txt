@@ -1,0 +1,23 @@
+
+
+
+Step 1: 
+  User clicks on "Start" button -> Eye Calibration Starts
+
+Step 2:
+  ECG Image should appear with a Timer on the side
+
+Step 3:
+  After x seconds, JavaScript should automatically click on "Finish Recording"   button
+  ECG Image and Timer should disappear
+
+Step 4: 
+  Back to the front page
+  Video record of ECG and heatmap ready for display
+  Video centered on the page
+
+--- 
+
+Step 5:
+  All the videos should stored on Azure database
+  All the video links beautifully positioned on left/right (as user history)

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://app.gazerecorder.com/GazeCloudAPI.js"></script>
+  <script src="https://app.gazerecorder.com/GazeRecorderAPI.js"></script>
+  <script src="https://app.gazerecorder.com/GazePlayer.js"></script>
+  <script>
+    // const startBtn = document.getElementById("startTraining");
+    const startImg = document.getElementById("ecg-image");
+    const startBtn = document.getElementById("start-training");
+
+    function AppearImage() {
+      console.log(startImg);
+    }
+
+    // GazeRecorderAPI.OnNavigation = function (url) {
+    //   document.getElementById("url").value = url;
+    // }
+
+
+    // function AppearImage() {
+
+    //   startImg.style.display = "block";
+    //   // startBtn.style.display = "none";
+
+    //   // setTimeout(function () {
+    //   //   startImg.style.display = "none";
+    //   // }, 5000);
+
+    //   // setTimeout(function () {
+    //   //   startBtn.style.display = "block";
+    //   // }, 5001);
+    // }
+
+    // function EndRec() {
+    //   document.getElementById("navi").style.display = 'none';
+    //   GazeRecorderAPI.StopRec();
+    //   GazeCloudAPI.StopEyeTracking();
+    // }
+
+    // function PlayRec() {
+    //   EndRec();
+    //   GazePlayer.SetCountainer(document.getElementById("playerdiv"));
+    //   var SesionReplayData = GazeRecorderAPI.GetRecData();
+    //   GazePlayer.PlayResultsData(SesionReplayData);
+    // }
+
+    // function start() {
+    //   document.getElementById("navi").style.display = 'block';
+    //   // GazeCloudAPI.StartEyeTracking();
+
+    //   GazeCloudAPI.OnCalibrationComplete = function () {
+
+    //     GazeRecorderAPI.Rec();
+    //   };
+    //   // AppearImage();
+    // }
+
+    // function Navigate() {
+    //   GazeRecorderAPI.Navigate();
+    // }
+
+  </script>
+  <title>ECG Training</title>
+</head>
+
+<body>
+
+  <img 
+    id="ecg-image" 
+    style="display: none" 
+    src="./sources/ecg-image.jpg" />
+
+  <div id="navi" style="
+      display:none; 
+      position: fixed; 
+      top: 0px; 
+      left: 0px; 
+      opacity: .8; ;
+      margin-left:auto;
+      margin-right:auto; 
+      z-index: 90;">
+    <button onclick="Navigate();" type="button">Go</button>
+    <button onclick="PlayRec()" type="button">Finish Recording</button>
+  </div>
+
+  <div style="
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%; 
+    transform: translate(-50%, -50%) 
+    ">
+    <button id="start-training" onclick="AppearImage();" type="button">
+      Start Training
+    </button>
+  </div>
+
+  <div id="playerdiv" style="
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  margin-right: -50%;
+  transform: translate(-50%, -50%)"></div>
+</body>
+
+</html>

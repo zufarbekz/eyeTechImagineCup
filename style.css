@@ -1,0 +1,18 @@
+
+main {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+
+#ecg-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#training {
+    display: flex;
+    flex-direction: row;
+}
