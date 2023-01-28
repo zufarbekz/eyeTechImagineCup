@@ -12,10 +12,11 @@
   <script src="https://app.gazerecorder.com/GazePlayer.js"></script>
   <script>
     // const startBtn = document.getElementById("startTraining");
-    const startImg = document.getElementById("ecg-image");
+    
     const startBtn = document.getElementById("start-training");
 
     function AppearImage() {
+      const startImg = document.getElementById("ecg-image");
       console.log(startImg);
     }
 
@@ -75,7 +76,8 @@
   <img 
     id="ecg-image" 
     style="display: none" 
-    src="./sources/ecg-image.jpg" />
+    src="./sources/ecg-image.jpg" 
+  />
 
   <div id="navi" style="
       display:none; 
@@ -110,6 +112,7 @@
   left: 50%; 
   margin-right: -50%;
   transform: translate(-50%, -50%)"></div>
-</body>
 
+  <script src="script.js"></script>
+</body>
 </html>
