@@ -1,35 +1,53 @@
-const startImg = document.getElementById("ecg-image");
-const startBtn = document.getElementById("start-training");
+// css toggle
 
-// const training = document.getElementById("training");
+let subMenu = document.getElementById("subMenu");
 
-// startBtn.addEventListener("click", function () {
+function toggleMenu() {
+    subMenu.classList.toggle("open-menu");
+}
 
-//     var count = 4;
-//     var intervalId = setInterval(function() {
-//         document.getElementById("timer").innerHTML = count;
-//         count--;
-//         if (count === -1) {
-//             clearInterval(intervalId);
-//         }
-//     }, 1000);
+// 
 
+GazeRecorderAPI.OnNavigation = function (url) {
+      document.getElementById("url").value = url;
+    }
 
-//     training.style.display = "block";
-//     startBtn.style.display = "none";
+function replayRec(){
+  GazePlayer.PlayResults();
+}
 
-    
+    function EndRec() {
+      document.getElementById("navi").style.display = 'none';
+      GazeRecorderAPI.StopRec();
+      GazeCloudAPI.StopEyeTracking();
+    }
 
-//     setTimeout(function(){
-//         training.style.display = "none";
-//     }, 5000);   
+    function PlayRec() {
+      EndRec(); 
+      GazePlayer.SetCountainer(document.getElementById("playerdiv"));
+      var SesionReplayData = GazeRecorderAPI.GetRecData();
+      GazePlayer.PlayResultsData(SesionReplayData);
+    }
 
-    
-    
-//     setTimeout(function(){
-//         startBtn.style.display = "block";
-//     }, 5001);
-    
-// })
+    function Navigate() {
+      GazeRecorderAPI.Navigate();
+    }
 
-// --------------------------------------
+    // Appear Image
+    function AppearImage() {
+      const startImg = document.getElementById("ecg-image");
+      const startBtn = document.getElementById("start-training");
+      startImg.style.display = "block";
+      startBtn.style.display = "none";
+    }
+
+    // Start Image
+    function start() {
+      document.getElementById("navi").style.display = 'block';
+      GazeCloudAPI.StartEyeTracking();
+      GazeCloudAPI.OnCalibrationComplete = function () {
+        GazeRecorderAPI.Rec();
+        AppearImage();
+        setTimeout(PlayRec, 10000);
+      }
+    }

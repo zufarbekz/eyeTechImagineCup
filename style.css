@@ -1,18 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  box-sizing: border-box;
+}
 
 main {
-    display: flex;
-    text-align: center;
-    align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #edf7fa; 
 }
 
 
+/* Navbar */
+/* ---------------------------------- */
+
+.nav-links {
+  font-size: 1.25rem;
+}
+
+nav {
+  background: #1a1a1a;
+  width: 100%;
+  padding: 10px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.user-pic:hover {
+  font-size: 1.1em;
+}
+
+.user-pic {
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 30px;
+  color: white;
+}
+
+nav ul {
+    width: 100%;
+    text-align: right;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+}
+
+.user-info {
+  margin: 0 7px;
+  display: flex;
+  align-items: center;
+}
+
+.user-info h3 {
+  font-weight: 500;
+}
+
+.fa-img {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+
+.sub-menu-link p {
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.sub-menu-link .sub-menu-logo {
+  width: 40px;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+
+.sub-menu-link span {
+  font-size: 22px;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+}
+
+/* ---------------------------------- */
+/* Main */
+main {
+  margin-top: 15px;
+  text-align: center;
+}
+
+#recBtn {
+  background: none;
+  border: none;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-header i {
+  font-size: 28px;
+  color: #393eea;
+} 
+
 #ecg-image {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #training {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Footer */
+
+.eyetech-logo {
+  width: 15rem;
+  height: 5rem;
+}
+
+.azure-logo {
+  width: 10rem;
+  height: 3rem;
+}
+
+.nav__title {
+  display: flex;
+  font-size: 2rem;
+  text-align: center;
+  justify-content: space-evenly;
+  font-weight: 600;
+}
+
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px 10px;  
+  background-color: #f4f4f4;
+}
+
+.footer-line {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.footer__logo {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.footer__nav {
+  display: flex;
+	flex-flow: row wrap;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  color: #999;
+}
+
+@media screen and (min-width: 24.375em) {
+  .legal .legal__links {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 40.375em) {
+  .footer__nav > * {
+    flex: 1;
+  }
+  
+  .nav__item--extra {
+    flex-grow: 2;
+  }
+  
+  .footer__addr {
+    flex: 1 0px;
+  }
+  
+  .footer__nav {
+    flex: 2 0px;
+  }
 }

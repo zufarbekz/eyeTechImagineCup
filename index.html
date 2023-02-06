@@ -1,118 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <link rel="stylesheet" href="style.css">
-
-  <script src="https://app.gazerecorder.com/GazeCloudAPI.js"></script>
-  <script src="https://app.gazerecorder.com/GazeRecorderAPI.js"></script>
-  <script src="https://app.gazerecorder.com/GazePlayer.js"></script>
-  <script>
-    // const startBtn = document.getElementById("startTraining");
-    
-    const startBtn = document.getElementById("start-training");
-
-    function AppearImage() {
-      const startImg = document.getElementById("ecg-image");
-      console.log(startImg);
-    }
-
-    // GazeRecorderAPI.OnNavigation = function (url) {
-    //   document.getElementById("url").value = url;
-    // }
-
-
-    // function AppearImage() {
-
-    //   startImg.style.display = "block";
-    //   // startBtn.style.display = "none";
-
-    //   // setTimeout(function () {
-    //   //   startImg.style.display = "none";
-    //   // }, 5000);
-
-    //   // setTimeout(function () {
-    //   //   startBtn.style.display = "block";
-    //   // }, 5001);
-    // }
-
-    // function EndRec() {
-    //   document.getElementById("navi").style.display = 'none';
-    //   GazeRecorderAPI.StopRec();
-    //   GazeCloudAPI.StopEyeTracking();
-    // }
-
-    // function PlayRec() {
-    //   EndRec();
-    //   GazePlayer.SetCountainer(document.getElementById("playerdiv"));
-    //   var SesionReplayData = GazeRecorderAPI.GetRecData();
-    //   GazePlayer.PlayResultsData(SesionReplayData);
-    // }
-
-    // function start() {
-    //   document.getElementById("navi").style.display = 'block';
-    //   // GazeCloudAPI.StartEyeTracking();
-
-    //   GazeCloudAPI.OnCalibrationComplete = function () {
-
-    //     GazeRecorderAPI.Rec();
-    //   };
-    //   // AppearImage();
-    // }
-
-    // function Navigate() {
-    //   GazeRecorderAPI.Navigate();
-    // }
-
-  </script>
-  <title>ECG Training</title>
+  <title>Document</title>
 </head>
-
 <body>
+  <nav>
+      <span>eyeTech DEMO</span>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">New Training</a></li>
+        <li><a href="#">Training History</a></li>
+      </ul>
+      <i class="fa-solid fa-user user-pic" onclick="toggleMenu()"></i>
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="user-info">
+            <i class="fa-solid fa-user fa-img"></i>
+            <h2>User</h2>
+          </div>
+          <hr>
+          <a href="#" class="sub-menu-link">
+            <i class="fa-sharp fa-solid fa-pen-to-square sub-menu-logo"></i>
+            <p>Edit Profile</p>
+            <span>></span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class="fa-solid fa-gear sub-menu-logo"></i>
+            <p>Settings & Privacy</p>
+            <span>></span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class="fa-solid fa-circle-info sub-menu-logo"></i>
+            <p>Help & Support</p>
+            <span>></span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class="fa-solid fa-arrow-right-from-bracket sub-menu-logo"></i>
+            <p>Log out</p>
+            <span>></span>
+          </a>
+        </div>
+      </div>
+  </nav>
+  
+  <main>
+    
+    <button id="start-training" onclick="start();" type="button">
+      Start Training
+    </button>
 
-  <img 
-    id="ecg-image" 
-    style="display: none" 
-    src="./sources/ecg-image.jpg" 
-  />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 col-sm-6">
+          <div class="sidebar-header">
+            <span class="date">
+              Today's Date: <span id="date"></span> 
+              <button id="recBtn" onclick="PlayRec()"> 
+                <i class="fas fa-video"></i>
+              </button>
+            </span>
+          </div>
+          <div class="col-md-10 col-sm-6">
+          </div
+        </div>
+      </div>
+    </div>
 
-  <div id="navi" style="
-      display:none; 
-      position: fixed; 
-      top: 0px; 
-      left: 0px; 
-      opacity: .8; ;
-      margin-left:auto;
-      margin-right:auto; 
-      z-index: 90;">
-    <button onclick="Navigate();" type="button">Go</button>
-    <button onclick="PlayRec()" type="button">Finish Recording</button>
-  </div>
+    <img id="ecg-image" style="display: none" src="./sources/ecg-image.jpg" />
 
-  <div style="
+    <div id="navi" style="
+    display:none; 
+    position: fixed; 
+    top: 0px; 
+    left: 0px; 
+    opacity: .8; ;
+    margin-left:auto;
+    margin-right:auto; 
+    z-index: 90;"></div>
+
+    <div style="
     background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%; 
     transform: translate(-50%, -50%) 
-    ">
-    <button id="start-training" onclick="AppearImage();" type="button">
-      Start Training
-    </button>
+    "></div>
+
+    <div id="playerdiv" style="
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    margin-right: -50%;
+    transform: translate(-50%, -50%)"></div>
+    
+  </main>
+
+<!--  Footer -->
+<footer class="footer">
+    
+  <div class="footer-line">
+    <h1 class="nav__title"><img class="eyetech-logo" src="./sources/eyetechl.jfif"></h1>  
+<!--     <h1 class="footer__logo">eyeTech</h1> -->
+    <h1 class="nav__title"><img class="azure-logo" src="./sources/azure-logo.png"></h1>      
   </div>
+  
+  <div class="legal">
+    <p>&copy; 2023 All rights reserved.</p>
+  </div>
+</footer>
 
-  <div id="playerdiv" style="
-  background-color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%; 
-  margin-right: -50%;
-  transform: translate(-50%, -50%)"></div>
+  <script>
+      let subMenu = document.getElementById("subMenu");
 
-  <script src="script.js"></script>
+      function toggleMenu() {
+          subMenu.classList.toggle("open-menu");
+      }
+  </script>
+  
 </body>
 </html>
