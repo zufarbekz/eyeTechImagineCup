@@ -1,0 +1,68 @@
+<!-- This file is intellectual property of eyeTech - Microsoft Imagine Cup Participant -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>ECG Training</title>
+</head>
+<body>
+
+  <img 
+    id="ecg-image" 
+    style="
+    display: none" 
+    src="./sources/ecg-image.jpg" 
+  />
+
+  <div 
+    id="navi" 
+    style="
+    display:none; 
+    position: fixed; 
+    top: 0px; 
+    left: 0px; 
+    opacity: .8; ;
+    margin-left:auto;
+    margin-right:auto; 
+    z-index: 90;"
+  ></div>
+
+  <div 
+    style="
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%; 
+    transform: translate(-50%, -50%) 
+    "
+  >
+    <button 
+      id="start-training" 
+      onclick="startTraining();" 
+      type="button"
+    >
+      Start Training
+    </button>
+  </div>
+
+  <div 
+    id="playerdiv" 
+    style="
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    margin-right: -50%;
+    transform: translate(-50%, -50%)"
+  ></div>
+
+  <script src="https://app.gazerecorder.com/GazeCloudAPI.js"></script>
+  <script src="https://app.gazerecorder.com/GazeRecorderAPI.js"></script>
+  <script src="https://app.gazerecorder.com/GazePlayer.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
